@@ -31,8 +31,7 @@ public class EmployController {
 
 
     @GetMapping
-    public  ResponseEntity<List<EmployDTO>> getEmployee(@RequestParam(required = false, name = "InputAge") Integer age ,
-                                            @RequestParam(required = false) String Name ){
+    public  ResponseEntity<List<EmployDTO>> getEmployee(){
         return ResponseEntity.ok(employeeService.getAllEmployee());
     }
 
