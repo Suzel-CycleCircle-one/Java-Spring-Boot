@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            background: #fff;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #333;
+        }
+        .token {
+            word-break: break-all;
+            background-color: #f8f8f8;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Welcome to the Home Page</h1>
+    <p id="message">Loading...</p>
+    <div id="token" class="token" style="display:none;"></div>
+</div>
+
+<script>
+    window.onload = function() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const token = urlParams.get('token');
+
+        const messageElement = document.getElementById('message');
+        const tokenElement = document.getElementById('token');
+
+        if (token) {
+            messageElement.textContent = "Authentication Successful! Here is your token:";
+            tokenElement.textContent = token;
+            tokenElement.style.display = "block";
+        } else {
+            messageElement.textContent = "No token found.";
+        }
+    };
+</script>
+</body>
+</html>
